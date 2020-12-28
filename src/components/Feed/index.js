@@ -1,9 +1,10 @@
 import React from 'react';
 import { FlatList } from 'react-native';
 import Post from '../Post';
-import Stories from '../Stories'
+import Stories from '../UserStoryPreviews'
 const data = [
     {
+        id: '1',
         user:{
             imageUri:'https://reactnative.dev/img/tiny_logo.png',
             name:'Mojinhyeok'
@@ -14,6 +15,7 @@ const data = [
         postedAt : '6 minutes ago'
     },
     {
+        id:'2',
         user:{
             imageUri:'https://reactnative.dev/img/tiny_logo.png',
             name:'Mojinhyeok'
@@ -29,6 +31,7 @@ const Feed = () => (
     <FlatList
      data={data}
      renderItem={({item})=> <Post post={item}/>}
+     keyExtractor={({id})=> id}
      ListHeaderComponent={Stories}
      />
 )
